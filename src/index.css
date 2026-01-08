@@ -420,3 +420,31 @@ img {
 .contact-item a:hover {
   text-decoration: underline;
 }
+
+/* Destinations page */
+.destinations-page {
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2C3C42;
+}
+
+.page-intro {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #506971;
+  text-align: center;
+}
+
+/* Optional: slightly increase spacing between cards */
+.container.grid {
+  gap: 36px;
+}

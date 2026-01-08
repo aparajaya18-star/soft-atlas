@@ -14,7 +14,7 @@ export default function DestinationCard({ title, description, images }) {
       </div>
 
       <div className="destinations-text">
-        <p>{description}</p>
+        {description}
       </div>
     </div>
   );
