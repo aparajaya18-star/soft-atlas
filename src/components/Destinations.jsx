@@ -1,6 +1,8 @@
 import React from "react";
 import DestinationCard from "./DestinationCard";
 
+const base = process.env.PUBLIC_URL;
+
 export default function Destination() {
   return (
     <section className="destinations">
@@ -11,10 +13,10 @@ export default function Destination() {
           title="Banaras"
           description="A city filled with spirituality and a showcase of India's culture and beauty"
           images={[
-            "/images/banaras_1.jpeg",
-            "/images/banaras_2.jpeg",
-            "/images/banaras_3.jpeg",
-            "/images/banaras_4.jpeg",
+            `${base}/images/banaras_1.jpeg`,
+            `${base}/images/banaras_2.jpeg`,
+            `${base}/images/banaras_3.jpeg`,
+            `${base}/images/banaras_4.jpeg`,
           ]}
         />
 
@@ -22,9 +24,9 @@ export default function Destination() {
           title="Goa"
           description="A hub for adventure sports, it is the best place to let loose and have fun in India"
           images={[
-            "/images/goa_1.jpeg",
-            "/images/goa_2.jpeg",
-            "/images/goa_3.jpeg",
+            `${base}/images/goa_1.jpeg`,
+            `${base}/images/goa_2.jpeg`,
+            `${base}/images/goa_3.jpeg`,
           ]}
         />
 
@@ -32,10 +34,10 @@ export default function Destination() {
           title="Uttarakhand"
           description="A place to be surrounded by nature, away from everyday busy life"
           images={[
-            "/images/uttarakhand_1.jpeg",
-            "/images/uttarakhand_2.jpeg",
-            "/images/uttarakhand_3.jpeg",
-            "/images/uttarakhand_4.jpeg",
+            `${base}/images/uttarakhand_1.jpeg`,
+            `${base}/images/uttarakhand_2.jpeg`,
+            `${base}/images/uttarakhand_3.jpeg`,
+            `${base}/images/uttarakhand_4.jpeg`,
           ]}
         />
       </div>

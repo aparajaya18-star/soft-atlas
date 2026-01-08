@@ -1,11 +1,13 @@
 import React from "react";
 
 export default function Hero() {
+  const base = process.env.PUBLIC_URL;
+
   return (
     <section
       className="hero"
       style={{
-        backgroundImage: "url(/images/banner_image.jpeg)",
+        backgroundImage: `url(${base}/images/banner_image.jpeg)`,
       }}
     >
       <div className="hero-content">
@@ -15,3 +17,4 @@ export default function Hero() {
     </section>
   );
 }
+
