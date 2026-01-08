@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/soft-atlas/static/css/main.a044d596.css",
+    "main.js": "/soft-atlas/static/js/main.7697e61f.js",
+    "index.html": "/soft-atlas/index.html",
+    "main.a044d596.css.map": "/soft-atlas/static/css/main.a044d596.css.map",
+    "main.7697e61f.js.map": "/soft-atlas/static/js/main.7697e61f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a044d596.css",
+    "static/js/main.7697e61f.js"
+  ]
+}
