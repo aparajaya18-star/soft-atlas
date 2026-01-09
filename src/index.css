@@ -280,6 +280,7 @@ img {
     height: 100%;
     gap: 24px;
     scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
     overflow-x: auto;
     scrollbar-width: none; /* Firefox */
 }
@@ -337,7 +338,22 @@ img {
   line-height: 1;
 }
 
-.destination-card:hover .scroll-hint {
+.scroll-hint.left {
+  left: 12px;
+  right: auto;
+}
+
+.scroll-hint.right {
+  right: 12px;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.9);
+}
+
+.destination-card:hover .scroll-hint:not(.hidden) {
   transform: scale(1.05);
   opacity: 0.8;
 }

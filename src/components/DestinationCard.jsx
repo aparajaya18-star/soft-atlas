@@ -1,22 +1,37 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function DestinationCard({ title, description, images }) {
-  const trackRef = useRef(null); // ← ADD
+  const trackRef = useRef(null);
+  const [index, setIndex] = useState(0);
+
+  const scrollToIndex = (newIndex) => {
+    if (!trackRef.current) return;
+
+    const img = trackRef.current.querySelector("img");
+    if (!img) return;
+
+    const gap = 24;
+    const width = img.offsetWidth + gap;
+
+    trackRef.current.scrollTo({
+      left: width * newIndex,
+      behavior: "smooth",
+    });
+
+    setIndex(newIndex);
+  };
 
   const scrollRight = () => {
-  if (!trackRef.current) return;
+    if (index < images.length - 1) {
+      scrollToIndex(index + 1);
+    }
+  };
 
-  const firstImage = trackRef.current.querySelector("img");
-  if (!firstImage) return;
-
-  const imageWidth = firstImage.offsetWidth;
-  const gap = 24; // matches your CSS gap
-
-  trackRef.current.scrollBy({
-    left: imageWidth + gap,
-    behavior: "smooth",
-  });
- };
+  const scrollLeft = () => {
+    if (index > 0) {
+      scrollToIndex(index - 1);
+    }
+  };
 
   return (
     <div className="destination-card">
@@ -24,15 +39,29 @@ export default function DestinationCard({ title, description, images }) {
 
       <div className="destinations-images">
         <div className="image-track" ref={trackRef}>
-          {images.map((src, index) => (
-            <img key={index} src={src} alt={title} />
+          {images.map((src, i) => (
+            <img key={i} src={src} alt={title} />
           ))}
         </div>
 
-        {/* THIS is what was missing */}
-        <button className="scroll-hint" onClick={scrollRight}>
-          <span className="arrow">›</span>
+        {/* Left arrow */}
+        <button
+          className={`scroll-hint left ${index === 0 ? "hidden" : ""}`}
+          onClick={scrollLeft}
+          aria-label="Scroll left"
+        >
+          ‹
         </button>
+
+
+        {/* Right arrow */}
+        <button
+          className={`scroll-hint right ${index === images.length - 1 ? "hidden" : ""}`}
+          onClick={scrollRight}
+          aria-label="Scroll right"
+        >
+          ›
+       </button>
       </div>
 
       <div className="destinations-text">
