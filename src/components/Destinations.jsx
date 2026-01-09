@@ -57,7 +57,27 @@ export default function Destination() {
           `${process.env.PUBLIC_URL}/images/ayodhya_4.jpeg`,
           `${process.env.PUBLIC_URL}/images/ayodhya_5.jpeg`,
         ]}
-      />
+       />
+
+       <DestinationCard
+          title="Agra"
+          description="Agra is home to the iconic Taj Mahal and rich Mughal history. The city offers both grand monuments and bustling bazaars."
+          images={[
+            `${process.env.PUBLIC_URL}/images/agra_1.jpeg`,
+            `${process.env.PUBLIC_URL}/images/agra_2.jpeg`,
+            `${process.env.PUBLIC_URL}/images/agra_3.jpeg`,
+          ]}
+        />
+
+        <DestinationCard
+          title="Jaipur"
+          description="Jaipur blends royal history with vibrant street life. From grand forts and palaces to bustling bazaars, the city feels carefully structured yet full of color and warmth."
+          images={[
+            `${process.env.PUBLIC_URL}/images/jaipur_1.jpeg`,
+            `${process.env.PUBLIC_URL}/images/jaipur_2.jpeg`,
+            `${process.env.PUBLIC_URL}/images/jaipur_3.jpeg`,
+          ]}
+        />
       </div>
     </section>
   );

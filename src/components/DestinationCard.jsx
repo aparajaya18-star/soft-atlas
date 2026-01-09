@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
-export default function DestinationCard({ title, description, images }) {
+export default function DestinationCard({ title, description, images, visitDate }) {
   const trackRef = useRef(null);
   const [index, setIndex] = useState(0);
 
@@ -35,7 +35,15 @@ export default function DestinationCard({ title, description, images }) {
 
   return (
     <div className="destination-card">
-      <h3>{title}</h3>
+      <div className="destination-info">
+        <h3>{title}</h3>
+
+        {visitDate && (
+          <p className="visit-date">
+            Visited on {visitDate.month} <span className="dot">•</span> {visitDate.year}
+          </p>
+        )}
+      </div>
 
       <div className="destinations-images">
         <div className="image-track" ref={trackRef}>
