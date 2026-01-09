@@ -1,8 +1,14 @@
 import React from "react";
 import DestinationCard from "../components/DestinationCard";
 import destinations from "../data/destinations";
+import { getVisitTimestamp } from "../utils/date";
 
 export default function DestinationsPage() {
+  const sortedDestinations = [...destinations].sort(
+    (a, b) =>
+      getVisitTimestamp(b.visitDate) - getVisitTimestamp(a.visitDate)
+  );
+
   return (
     <section className="atlas-page">
       <h1 className="page-title">Atlas</h1>
@@ -14,19 +20,19 @@ export default function DestinationsPage() {
       </p>
 
       <div className="atlas-grid">
-        {destinations.map((place) => (
+        {sortedDestinations.map((dest) => (
           <DestinationCard
-            key={place.id}
-            title={place.title}
+            key={dest.id}
+            title={dest.title}
             description={
               <>
-                {place.description.long.map((para, i) => (
+                {dest.description.long.map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
               </>
             }
-            images={place.images.atlas}
-            visitDate={place.visitDate}
+            images={dest.images.atlas}
+            visitDate={dest.visitDate}
           />
         ))}
       </div>
