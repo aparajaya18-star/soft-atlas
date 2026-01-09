@@ -3,7 +3,7 @@ import DestinationCard from "../components/DestinationCard";
 
 export default function DestinationsPage() {
   return (
-    <section className="destinations-page">
+    <section className="atlas-page">
       <h1 className="page-title">Atlas</h1>
 
       <p className="page-intro">
@@ -12,7 +12,7 @@ export default function DestinationsPage() {
         emotions, and moments that go beyond photographs.
       </p>
 
-      <div className="container grid">
+      <div className="atlas-grid">
         <DestinationCard
           title="Banaras"
           description={
@@ -66,6 +66,11 @@ export default function DestinationsPage() {
                 Goa represents freedom in motion—a reminder that rest and excitement
                 can coexist beautifully.
               </p>
+
+              <p>
+                Goa’s charm goes beyond its beaches and parties. From quiet spice plantations and lush hinterlands to vibrant Portuguese-influenced architecture, the state is a mosaic of experiences waiting to be explored. Savor local cuisine, wander through serene villages, and soak in the laid-back lifestyle that makes Goa feel like a world apart from the rush of everyday life.
+              </p>
+              
             </>
           }
           images={[
@@ -104,6 +109,29 @@ export default function DestinationsPage() {
             `${process.env.PUBLIC_URL}/images/uttarakhand_4.jpeg`,
             ]}
         />
+        <DestinationCard
+        title="Ayodhya"
+        description={
+          <>
+            <p>
+              Ayodhya is a city steeped in history, legend, and spirituality. Known for its ancient temples and sacred ghats, it offers a serene and contemplative atmosphere for travelers seeking a connection with India's cultural heritage.
+            </p>
+            <p>
+              Walking through its streets, you encounter a blend of tradition and vibrant local life — from colorful markets to the soothing sounds of ritual prayers along the Sarayu river. Each corner tells a story of devotion, architecture, and the passage of centuries.
+            </p>
+            <p>
+              This city encourages visitors to slow down, reflect, and immerse themselves in a tapestry of history, mythology, and everyday beauty. Whether it’s sunrise by the river or exploring its historic landmarks, Ayodhya leaves a lasting impression on every traveler.
+            </p>
+          </>
+        }
+        images={[
+          `${process.env.PUBLIC_URL}/images/ayodhya_1.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_2.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_3.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_4.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_5.jpeg`,
+        ]}
+      />
       </div>
     </section>
   );

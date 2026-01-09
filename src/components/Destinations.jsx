@@ -40,6 +40,24 @@ export default function Destination() {
             `${base}/images/uttarakhand_4.jpeg`,
           ]}
         />
+
+        <DestinationCard
+        title="Ayodhya"
+        description={
+          <>
+            <p>
+              Ayodhya is an ancient city with profound cultural and spiritual significance, where every corner echoes stories of history and devotion.
+            </p>
+          </>
+        }
+        images={[
+          `${process.env.PUBLIC_URL}/images/ayodhya_1.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_2.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_3.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_4.jpeg`,
+          `${process.env.PUBLIC_URL}/images/ayodhya_5.jpeg`,
+        ]}
+      />
       </div>
     </section>
   );

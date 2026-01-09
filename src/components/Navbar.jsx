@@ -19,9 +19,9 @@ export default function Navbar() {
         {/* Navigation links */}
         <ul>
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/atlas">Atlas</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/atlas">Atlas</Link></li> {/* NEW */}
         </ul>
       </div>
     </nav>
