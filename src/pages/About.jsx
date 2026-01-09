@@ -10,34 +10,40 @@ export default function About() {
         </p>
       </div>
 
-      <div className="divider-wrapper">
-          <div className="page-divider" />
-     </div>
+      <div className="text-divider">
+       ──── ✦ ────
+      </div>
 
       <div className="about-content">
-        <p>
-          Soft Atlas is a personal travel journal created to document places that
-          leave a lasting impression. Rather than fast-paced itineraries, this
-          space focuses on slower experiences — cities, landscapes, and moments
-          that feel grounding.
-        </p>
+         <p>
+            Soft Atlas is a personal travel journal created to document places that
+            leave a lasting impression. Rather than fast-paced itineraries, this
+            space focuses on slower experiences — cities, landscapes, and moments
+            that feel grounding.
+          </p>
 
-        <p>
-          Each destination shared here reflects a sense of calm, curiosity, and
-          appreciation for culture, nature, and everyday beauty. From busy
-          streets to quiet corners, this atlas grows with every journey.
-        </p>
+          <p>
+            Each destination shared here reflects a sense of calm, curiosity, and
+            attention to detail. From busy streets to quiet corners, Soft Atlas
+            grows as a collection of places that invite pause rather than urgency.
+          </p>
 
-        <p>
-          This project is still evolving, just like travel itself. Soft Atlas is
-          a space to pause, reflect, and collect stories along the way.
-        </p>
+          <p>
+            This project continues to evolve with every journey. Soft Atlas is
+            meant to be revisited — a record of movement, memory, and stillness
+            over time.
+          </p>
 
-        <div className="divider-wrapper">
-          <div className="page-divider" />
+          <p className="about-signature">
+            Created as a personal archive, Soft Atlas reflects the way I experience
+            travel — slowly, observantly, and with an appreciation for quiet detail.
+          </p>
+
+          <div className="text-divider">
+            ──── ✦ ────
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </section>
   );
 }

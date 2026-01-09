@@ -1,5 +1,4 @@
 /* General */
-
 .page {
   animation: fadeIn 0.35s ease;
 }
@@ -148,19 +147,19 @@ img {
   fill: rgba(255, 255, 255, 0.85);
 }
 
-.divider-wrapper {
+.text-divider {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 24px 0;
-}
+  align-items: center;
 
-.page-divider {
-  width: 220px;
-  height: 3px;
-  border-radius: 2px;
-  background: #2C3C42;
-  opacity: 0.15; /* was too low before */
+  margin: 16px 0;
+  font-size: 1rem;
+  letter-spacing: 0em;
+
+  color: #2C3C42;
+  opacity: 0.8;
+
+  user-select: none;
 }
 
 .site-footer {
@@ -426,8 +425,9 @@ img {
 }
 
 .about-subtitle {
+  font-style: italic;
   margin-top: 12px;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .about-content {
@@ -439,10 +439,12 @@ img {
 .about-content p {
   font-size: 1.05rem;
   color: #506971;
+  margin: 0 auto 18px;
+  line-height: 1.7;
 }
 
-.about-content p {
-  margin-bottom: 24px;
+.about-signature {
+  margin-top: 28px;
 }
 
 /* Contact page */
@@ -466,19 +468,31 @@ img {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .contact-item {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .contact-item span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 110px;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #7a9aa6;
+}
+
+.contact-item span svg {
+  position: relative;
+  top: -1px; 
 }
 
 .contact-item a {
