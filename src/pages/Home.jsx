@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import DestinationCard from "../components/DestinationCard";
@@ -11,6 +13,20 @@ export default function Home() {
   );
 
   const recentDestinations = sortedDestinations.slice(0, 3);
+
+  const [backendMessage, setBackendMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5001/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Backend response:", data);
+        setBackendMessage(data.message);
+      })
+      .catch((err) => {
+        console.error("Backend fetch failed:", err);
+      });
+  }, []);
 
   return (
     <section className="page">
@@ -34,6 +50,19 @@ export default function Home() {
         These are only glimpses.{" "}
         <Link to="/atlas">Explore the Atlas →</Link>
       </p>
+
+      {backendMessage && (
+        <p
+          style={{
+            marginTop: "40px",
+            fontSize: "0.85rem",
+            opacity: 0.6,
+            textAlign: "center",
+          }}
+        >
+          {backendMessage}
+        </p>
+      )}
     </section>
   );
 }
