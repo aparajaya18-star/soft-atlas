@@ -2,13 +2,20 @@ export default function About() {
   return (
     <section className="page">
     <section className="about-section">
-      <div className="about-hero">
-        <h1>About Soft Atlas</h1>
+      <section
+        className="about-hero"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/about_banner_2.jpeg)`
+        }}
+      >
+        <div className="about-hero-overlay">
+          <h1>About Soft Atlas</h1>
 
-        <p className="about-subtitle">
-          A quiet collection of places, moments, and memories.
-        </p>
-      </div>
+          <p className="about-hero-subtitle">
+            A quiet archive of places, moments, and memories.
+          </p>
+        </div>
+      </section>
 
       <div className="text-divider">
        ──── ✦ ────

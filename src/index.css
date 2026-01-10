@@ -404,12 +404,59 @@ img {
 /* About page */
 
 .about-section {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 .about-hero {
+  position: relative;
+  height: 260px;
   text-align: center;
-  margin-bottom: 48px;
+  margin-top: 0px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  min-height: 40vh;
+  max-height: 70vh;
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(44, 60, 66, 0.5),
+    rgba(44, 60, 66, 0.1)
+  );
+}
+
+.about-hero-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f6f7f8;
+  padding: 0 24px;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.about-section .text-divider{
+  padding-top: 40px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .about-hero h1,
@@ -424,7 +471,7 @@ img {
   opacity: 0.85;
 }
 
-.about-subtitle {
+.about-hero-subtitle {
   font-style: italic;
   margin-top: 12px;
   opacity: 0.75;
@@ -433,11 +480,11 @@ img {
 .about-content {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px 80px;
+  padding: 40px 24px 80px;
 }
 
 .about-content p {
-  font-size: 1.05rem;
+  font-size: 1.10rem;
   color: #506971;
   margin: 0 auto 18px;
   line-height: 1.7;
@@ -452,13 +499,18 @@ img {
 .contact-page {
   max-width: 720px;
   margin: 0 auto;
-  padding: 60px 24px 80px;
+  padding: 28px 24px 64px;
   text-align: center;
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.contact-page h1 {
+  margin-bottom: 20px;
 }
 
 .contact-intro {
   max-width: 520px;
-  margin: 20px auto 40px;
+  margin: 16px auto 32px;
   font-size: 1rem;
   line-height: 1.6;
   color: #506971;
@@ -504,6 +556,21 @@ img {
 .contact-item a:hover {
   text-decoration: underline;
 }
+
+.contact-hero {
+  height: 160px;
+  margin: 12px 0 24px;
+  overflow: hidden;
+}
+
+.contact-hero img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center 60%;
+  opacity: 0.85;
+}
+
 
 /* Destinations/Atlas page */
 .atlas-page {
@@ -579,8 +646,8 @@ img {
 .atlas-page .image-track img {
   flex: 0 0 100%;
   width: 100%;
-  height: 360px;          /* fixed visual rhythm */
-  object-fit: cover;     /* consistent crop */
+  height: 360px;          
+  object-fit: cover;     
   border-radius: 12px;
   scroll-snap-align: start;
 }

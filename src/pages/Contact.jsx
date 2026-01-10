@@ -7,9 +7,12 @@ export default function Contact() {
     <section className="contact-page">
       <h1>Get in touch</h1>
       
-      <div className="text-divider">
-        ──── ✦ ───
-      </div>
+      <section className="contact-hero">
+        <img
+          src={`${process.env.PUBLIC_URL}/images/contact_image.jpeg`}
+          alt=""
+        />
+      </section>
 
       <p className="contact-intro">
         If you'd like to talk about travel, projects, or anything else,
