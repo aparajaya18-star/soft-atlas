@@ -5,7 +5,7 @@ export default function About() {
       <section
         className="about-hero"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/about_banner_2.jpeg)`
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/about_banner.jpeg)`
         }}
       >
         <div className="about-hero-overlay">
