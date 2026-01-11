@@ -171,6 +171,17 @@ img {
   opacity: 0.8;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.3s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Home Page */
 
 .hero {
@@ -399,6 +410,13 @@ img {
 
 .atlas-cta a:hover {
   border-bottom-color: rgba(44, 60, 66, 0.6);
+}
+
+.visitor-count {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  text-align: center;
 }
 
 /* About page */

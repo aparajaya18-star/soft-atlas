@@ -28,6 +28,15 @@ export default function Home() {
       });
   }, []);
 
+  const [visitors, setVisitors] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5001/api/visitors")
+      .then(res => res.json())
+      .then(data => setVisitors(data.visitors))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <section className="page">
       <Hero />
@@ -61,6 +70,12 @@ export default function Home() {
           }}
         >
           {backendMessage}
+        </p>
+      )}
+
+      {visitors !== null && (
+        <p className="visitor-count">
+          Travelers who’ve passed through: {visitors}
         </p>
       )}
     </section>
