@@ -47,6 +47,7 @@ export default function DestinationCard({ title, description, images, visitDate 
               Visited on {visitDate.month} <span className="dot">•</span> {visitDate.year}
             </p>
           )}
+          
         </div>
 
         <div className="destinations-images">

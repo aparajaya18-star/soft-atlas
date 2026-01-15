@@ -3,7 +3,7 @@ import DestinationCard from "../components/DestinationCard";
 import destinations from "../data/destinations";
 import { getVisitTimestamp } from "../utils/date";
 
-export default function DestinationsPage() {
+export default function Atlas() {
   const sortedDestinations = [...destinations].sort(
     (a, b) =>
       getVisitTimestamp(b.visitDate) - getVisitTimestamp(a.visitDate)

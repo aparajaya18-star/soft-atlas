@@ -1,4 +1,4 @@
-/* General */
+/* General Utilities */
 .page {
   animation: fadeIn 0.35s ease;
 }
@@ -19,17 +19,6 @@
   text-align: center;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 body{
     background-color:#C5E3F0;
     color:#2C3C42;
@@ -38,28 +27,28 @@ body{
 }
 
 body h2 {
-    text-align: center;
+  text-align: center;
 }
 
 ul {
-list-style-type: none;
+  list-style-type: none;
 }
 
-a {
-    text-decoration: none;
-    color: #2C3C42;
+a{
+  text-decoration: none;
+  color: #2C3C42;
 }
 
 h1, h2, h3 {
   letter-spacing: 0.4px;
 }
 
-p {
-    margin: 10px 0;
+p{
+  margin: 10px 0;
 }
 
-img {
-    width: 100%;
+img{
+  width: 100%;
 }
 
 .container {
@@ -81,6 +70,7 @@ img {
     gap: 24px;
 }
 
+/* Navbar */
 .navbar {
     background-color: #2C3C42;
     color:#C5E3F0;
@@ -147,6 +137,7 @@ img {
   fill: rgba(255, 255, 255, 0.85);
 }
 
+/* Divider */
 .text-divider {
   display: flex;
   justify-content: center;
@@ -162,6 +153,7 @@ img {
   user-select: none;
 }
 
+/* Footer */
 .site-footer {
   margin-top: 80px;
   padding: 24px 16px;
@@ -169,6 +161,29 @@ img {
   font-size: 0.85rem;
   color: #506971;
   opacity: 0.8;
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fade-in {
@@ -182,49 +197,7 @@ img {
   transform: translateY(0);
 }
 
-/* Home Page */
-
-.hero {
-  height: 90vh; 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 60, 120, 0.10);
-}
-.hero-content {
-  position: relative;
-  text-align: center;
-  color: white;
-  padding: 0 20px;
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.hero h2 {
-  font-size: 1.5rem;
-  margin-top: 12px;
-  font-weight: 400;
-  opacity: 0.9;
-}
-.hero h1,
-.hero h2 {
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
+/* Destination Card */
 .destinations {
   margin-top: 35px; 
 }
@@ -238,17 +211,17 @@ img {
 }
 
 .destinations-images {
-    height: 180px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none; 
+  position: relative;
 
-    display: block;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+  height: 180px;
+  overflow-x: auto;
+  overflow-y: hidden; 
 
-    position: relative;
-    white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  white-space: nowrap;
 }
 
 .destinations-images::before,
@@ -278,6 +251,36 @@ img {
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
   );
+}
+
+.destination-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.destination-info h3 {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #2C3C42;
+}
+
+.destination-info .visit-date {
+  font-size: 0.85rem;
+  color: #7a9aa6a3;
+  margin-top: 4px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  opacity: 0.85;
+}
+
+.visit-date .dot {
+  display: inline-block;
+  margin: 0 6px;
+  color: #7a9aa6;
+  font-weight: 700;
 }
 
 .image-track::-webkit-scrollbar {
@@ -391,6 +394,50 @@ img {
     transform: translateY(-3px);
 }
 
+/* Home Page */
+
+.hero {
+  height: 90vh; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 60, 120, 0.10);
+}
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  margin-top: 12px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.hero h1,
+.hero h2 {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 .atlas-cta {
   margin: 48px auto 0;
   text-align: center;
@@ -464,19 +511,7 @@ img {
   padding-top: 40px;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.about-hero h1,
-.contact-page h1 {
+.about-hero h1 {
   font-size: 2.6rem;
   letter-spacing: 0.5px;
 }
@@ -521,7 +556,23 @@ img {
 }
 
 .contact-page h1 {
+  font-size: 2.6rem;
+  letter-spacing: 0.5px;
   margin-bottom: 20px;
+}
+
+.contact-hero {
+  height: 160px;
+  margin: 12px 0 24px;
+  overflow: hidden;
+}
+
+.contact-hero img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center 60%;
+  opacity: 0.85;
 }
 
 .contact-intro {
@@ -573,22 +624,8 @@ img {
   text-decoration: underline;
 }
 
-.contact-hero {
-  height: 160px;
-  margin: 12px 0 24px;
-  overflow: hidden;
-}
+/* Atlas page */
 
-.contact-hero img {
-  width: 100%;
-  height: 80%;
-  object-fit: cover;
-  object-position: center 60%;
-  opacity: 0.85;
-}
-
-
-/* Destinations/Atlas page */
 .atlas-page {
   padding: 60px 24px 100px;
   max-width: 1200px;
@@ -666,43 +703,4 @@ img {
   object-fit: cover;     
   border-radius: 12px;
   scroll-snap-align: start;
-}
-
-.destination-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.visit-date {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.02em;
-}
-
-.destination-info {
-  text-align: center;
-  margin-bottom: 12px; /* space between info and images */
-}
-
-.destination-info h3 {
-  font-size: 1.6rem;
-  margin: 0;
-  color: #2C3C42;
-}
-
-.destination-info .visit-date {
-  font-size: 0.85rem;
-  color: #7a9aa6a3;  /* subtle, slightly muted */
-  margin-top: 4px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  opacity: 0.85;
-}
-
-.visit-date .dot {
-  display: inline-block;
-  margin: 0 6px;
-  color: #7a9aa6;
-  font-weight: 700;
 }
