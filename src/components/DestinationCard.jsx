@@ -42,7 +42,7 @@ export default function DestinationCard({ title, description, images, visitDate 
         <div className="destination-info">
           <h3>{title}</h3>
 
-          {visitDate && (
+          {visitDate?.month && visitDate?.year && (
             <p className="visit-date">
               Visited on {visitDate.month} <span className="dot">•</span> {visitDate.year}
             </p>

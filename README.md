@@ -23,6 +23,8 @@ In Task 3, the entire project was converted into React. The website was broken d
 
 For Task 4, a simple Node.js + Express backend was created to demonstrate frontend–backend communication. A GET API endpoint returns sample JSON data, which is fetched in the React frontend and displayed on the Home page, confirming successful integration.
 
+Note: Backend runs locally for demonstration purposes. GitHub Pages hosts the frontend only.
+
 ## Features
 
 Responsive layout
