@@ -17,7 +17,7 @@ export default function Home() {
   const [backendMessage, setBackendMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://soft-atlas-backend.onrender.com/api/visitors")
+    fetch("https://soft-atlas.onrender.com/api/visitors")
       .then((res) => res.json())
       .then((data) => {
         console.log("Backend response:", data);
@@ -31,7 +31,7 @@ export default function Home() {
   const [visitors, setVisitors] = useState(null);
 
   useEffect(() => {
-    fetch("https://soft-atlas-backend.onrender.com/api/visitors")
+    fetch("https://soft-atlas.onrender.com/api/visitors")
       .then(res => res.json())
       .then(data => setVisitors(data.visitors))
       .catch(err => console.error(err));
