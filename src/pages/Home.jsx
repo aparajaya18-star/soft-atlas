@@ -31,7 +31,7 @@ export default function Home() {
   const [visitors, setVisitors] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/visitors")
+    fetch("https://soft-atlas-backend.onrender.com/api/visitors")
       .then(res => res.json())
       .then(data => setVisitors(data.visitors))
       .catch(err => console.error(err));
