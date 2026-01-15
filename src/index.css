@@ -1,4 +1,5 @@
 /* General Utilities */
+
 .page {
   animation: fadeIn 0.35s ease;
 }
@@ -163,7 +164,7 @@ img{
   opacity: 0.8;
 }
 
-/* Fade In */
+/* Fade Effects */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -210,6 +211,12 @@ img{
     flex-direction: column;
 }
 
+.destination-card:hover {
+    transform: translateY(-3px);
+    transition: transform 0.25s ease;
+}
+
+/* Images */
 .destinations-images {
   position: relative;
 
@@ -253,6 +260,7 @@ img{
   );
 }
 
+/* Text */
 .destination-info {
   display: flex;
   flex-direction: column;
@@ -283,10 +291,26 @@ img{
   font-weight: 700;
 }
 
-.image-track::-webkit-scrollbar {
-  display: none; /* Chrome / Safari */
+.destination-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+    color: #2C3C42;
+    text-align: center;
 }
 
+.destination-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #506971;
+}
+
+.destinations-text {
+    padding: 16px;
+    text-align: left;
+}
+
+/* Image track */
 .image-track {
     display: flex;
     height: 100%;
@@ -294,11 +318,11 @@ img{
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none; 
 }
 
 .image-track::-webkit-scrollbar {
-  display: none; /* Chrome / Safari */
+  display: none; 
 }
 
 .image-track img {
@@ -310,6 +334,7 @@ img{
   border-radius: 12px;
 }
 
+/* Scroll Hint */
 .scroll-hint {
   position: absolute;
   right: 12px;
@@ -368,30 +393,6 @@ img{
 .destination-card:hover .scroll-hint:not(.hidden) {
   transform: scale(1.05);
   opacity: 0.8;
-}
-
-.destinations-text {
-    padding: 16px;
-    text-align: left;
-}
-
-.destination-card h3 {
-    margin: 0 0 8px;
-    font-size: 1.2rem;
-    color: #2C3C42;
-    text-align: center;
-}
-
-.destination-card p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #506971;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.destination-card:hover {
-    transform: translateY(-3px);
 }
 
 /* Home Page */
@@ -470,6 +471,10 @@ img{
   padding-top: 0px;
 }
 
+.about-section .text-divider{
+  padding-top: 40px;
+}
+
 .about-hero {
   position: relative;
   height: 260px;
@@ -505,10 +510,6 @@ img{
   color: #f6f7f8;
   padding: 0 24px;
   animation: fadeUp 0.8s ease-out forwards;
-}
-
-.about-section .text-divider{
-  padding-top: 40px;
 }
 
 .about-hero h1 {
@@ -690,10 +691,6 @@ img{
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0.5rem;
-}
-
-.atlas-page .image-track::-webkit-scrollbar {
-  display: none;
 }
 
 .atlas-page .image-track img {
