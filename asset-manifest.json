@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/soft-atlas/static/css/main.2ab13814.css",
+    "main.css": "/soft-atlas/static/css/main.609c0ec1.css",
     "main.js": "/soft-atlas/static/js/main.c27ca1d5.js",
     "index.html": "/soft-atlas/index.html",
-    "main.2ab13814.css.map": "/soft-atlas/static/css/main.2ab13814.css.map",
+    "main.609c0ec1.css.map": "/soft-atlas/static/css/main.609c0ec1.css.map",
     "main.c27ca1d5.js.map": "/soft-atlas/static/js/main.c27ca1d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ab13814.css",
+    "static/css/main.609c0ec1.css",
     "static/js/main.c27ca1d5.js"
   ]
 }
