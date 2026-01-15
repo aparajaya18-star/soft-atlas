@@ -78,6 +78,12 @@ export default function Home() {
           Travelers who’ve passed through: {visitors}
         </p>
       )}
+
+      {visitors === null && (
+        <p className="visitor-count muted">
+          Travelers who’ve passed through: ✦
+        </p>
+      )}
     </section>
   );
 }
