@@ -37,50 +37,48 @@ export default function DestinationCard({ title, description, images, visitDate 
   const fadeRef = useFadeIn();
 
   return (
-    <article ref={fadeRef} className="destination-card fade-in">
-      <div className="destination-card">
-        <div className="destination-info">
-          <h3>{title}</h3>
+    <div ref={fadeRef} className="destination-card fade-in">
+      <div className="destination-info">
+        <h3>{title}</h3>
 
-          {visitDate?.month && visitDate?.year && (
-            <p className="visit-date">
-              Visited on {visitDate.month} <span className="dot">•</span> {visitDate.year}
-            </p>
-          )}
-          
-        </div>
-
-        <div className="destinations-images">
-          <div className="image-track" ref={trackRef}>
-            {images.map((src, i) => (
-              <img key={i} src={src} alt={title} />
-            ))}
-          </div>
-
-          {/* Left arrow */}
-          <button
-            className={`scroll-hint left ${index === 0 ? "hidden" : ""}`}
-            onClick={scrollLeft}
-            aria-label="Scroll left"
-          >
-            ‹
-          </button>
-
-
-          {/* Right arrow */}
-          <button
-            className={`scroll-hint right ${index === images.length - 1 ? "hidden" : ""}`}
-            onClick={scrollRight}
-            aria-label="Scroll right"
-          >
-            ›
-        </button>
-        </div>
-
-        <div className="destinations-text">
-          <p>{description}</p>
-        </div>
+        {visitDate?.month && visitDate?.year && (
+          <p className="visit-date">
+            Visited on {visitDate.month} <span className="dot">•</span> {visitDate.year}
+          </p>
+        )}
+        
       </div>
-    </article>
+
+      <div className="destinations-images">
+        <div className="image-track" ref={trackRef}>
+          {images.map((src, i) => (
+            <img key={i} src={src} alt={title} />
+          ))}
+        </div>
+
+        {/* Left arrow */}
+        <button
+          className={`scroll-hint left ${index === 0 ? "hidden" : ""}`}
+          onClick={scrollLeft}
+          aria-label="Scroll left"
+        >
+          ‹
+        </button>
+
+
+        {/* Right arrow */}
+        <button
+          className={`scroll-hint right ${index === images.length - 1 ? "hidden" : ""}`}
+          onClick={scrollRight}
+          aria-label="Scroll right"
+        >
+          ›
+      </button>
+      </div>
+
+      <div className="destinations-text">
+        <p>{description}</p>
+      </div>
+    </div>
   );
 }
