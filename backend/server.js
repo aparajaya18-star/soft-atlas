@@ -2,9 +2,10 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
+app.use(express.json());
 
 let visitors = 0;
 
@@ -22,6 +23,5 @@ app.get("/api/visitors", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("🚨 THIS IS THE VISITOR SERVER VERSION 🚨");
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });

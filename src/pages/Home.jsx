@@ -17,7 +17,7 @@ export default function Home() {
   const [backendMessage, setBackendMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5001/api/data")
+    fetch("https://soft-atlas-backend.onrender.com/api/visitors")
       .then((res) => res.json())
       .then((data) => {
         console.log("Backend response:", data);
