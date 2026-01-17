@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import useFadeIn from "../hooks/useFadeIn";
 
-export default function DestinationCard({ title, description, images, visitDate }) {
+export default function DestinationCard({id, isWanderTarget, title, description, images, visitDate }) {
   const trackRef = useRef(null);
   const [index, setIndex] = useState(0);
 
@@ -37,7 +37,12 @@ export default function DestinationCard({ title, description, images, visitDate 
   const fadeRef = useFadeIn();
 
   return (
-    <div ref={fadeRef} className="destination-card fade-in">
+    <div ref={fadeRef} 
+      id={`dest-${id}`}
+      className={`destination-card fade-in ${
+        isWanderTarget ? "wander-highlight" : ""
+      }`}
+    >
       <div className="destination-info">
         <h3>{title}</h3>
 

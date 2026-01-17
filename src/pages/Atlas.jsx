@@ -18,6 +18,12 @@ export default function Atlas() {
         getVisitTimestamp(b.visitDate) - getVisitTimestamp(a.visitDate)
   );
 
+  const clearFilters = () => {
+    setActiveFilters([]);
+    setShowFilters(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const FILTER_TAGS = [
     "sunlit",
     "wintered",
@@ -29,6 +35,31 @@ export default function Atlas() {
     "lively",
     "peaceful"
   ];
+
+  const [wanderTargetId, setWanderTargetId] = useState(null);
+
+  const handleWander = (breakFree = false) => {
+    const pool = breakFree
+      ? destinations
+      : filteredAndSortedDestinations.length
+        ? filteredAndSortedDestinations
+        : destinations;
+
+    if (pool.length === 0) return;
+
+    const random = pool[Math.floor(Math.random() * pool.length)];
+
+    setWanderTargetId(random.id);
+    const el = document.getElementById(`dest-${random.id}`);
+    if (!el) return;
+
+    const yOffset = -120; // adjust if needed
+    const y =
+      el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
 
   return (
     <section className="atlas-page">
@@ -47,7 +78,23 @@ export default function Atlas() {
           ⟡ Refine
         </button>
 
-        {/* Random Wander will sit here later */}
+        {activeFilters.length > 0 && (
+          <button
+            className="clear-filters"
+            onClick={clearFilters}
+          >
+            ⟲ Reset
+          </button>
+        )}
+
+        <button
+          className="wander-toggle"
+          title="Wander with filters • Shift+Click to break free"
+          onClick={() => handleWander(false)}
+          onDoubleClick={() => handleWander(true)}
+        >
+          ⌁ WanderLust
+        </button>
       </div>
 
       {showFilters && (
@@ -83,6 +130,8 @@ export default function Atlas() {
         {filteredAndSortedDestinations.map((dest) => (
           <DestinationCard
             key={dest.id}
+            id={dest.id}
+            isWanderTarget={wanderTargetId === dest.id}
             title={dest.title}
             description={
               <>
