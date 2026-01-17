@@ -27,6 +27,7 @@ const destinations = [
         `${base}/images/banaras_5.jpeg`,
       ],
     },
+    tags: ["cultural", "peaceful","slow"]
   },
 
   {
@@ -55,6 +56,7 @@ const destinations = [
         `${base}/images/goa_4.jpeg`,
       ],
     },
+    tags: ["sunlit", "fun","nature-led","lively"]
   },
 
   {
@@ -82,6 +84,7 @@ const destinations = [
         `${base}/images/uttarakhand_4.jpeg`,
       ],
     },
+    tags: ["peaceful","slow","nature-led","fun"]
   },
 
   {
@@ -110,6 +113,7 @@ const destinations = [
         `${base}/images/ayodhya_5.jpeg`,
       ],
     },
+    tags: ["cultural", "lively", "wintered"]
   },
 
   {
@@ -138,6 +142,7 @@ const destinations = [
         `${base}/images/agra_5.jpeg`,
       ],
     },
+    tags: ["historical", "lively"]
   },
 
   {
@@ -167,6 +172,7 @@ const destinations = [
         `${base}/images/jaipur_5.jpeg`,
       ],
     },
+    tags: ["cultural", "historical","fun"]
   },
 ];
 
