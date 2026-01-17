@@ -3,6 +3,7 @@ import useFadeIn from "../hooks/useFadeIn";
 
 export default function DestinationCard({id, isWanderTarget, title, description, images, visitDate }) {
   const trackRef = useRef(null);
+  const fadeRef = useFadeIn();
   const [index, setIndex] = useState(0);
 
   const scrollToIndex = (newIndex) => {
@@ -34,14 +35,21 @@ export default function DestinationCard({id, isWanderTarget, title, description,
     }
   };
 
-  const fadeRef = useFadeIn();
+    useEffect(() => {
+      if (!isWanderTarget || !fadeRef.current) return;
+
+      const el = fadeRef.current;
+
+      // Restart glow safely
+      el.classList.remove("wander-highlight");
+      void el.offsetWidth; // force reflow
+      el.classList.add("wander-highlight");
+    }, [isWanderTarget]);
 
   return (
     <div ref={fadeRef} 
       id={`dest-${id}`}
-      className={`destination-card fade-in ${
-        isWanderTarget ? "wander-highlight" : ""
-      }`}
+      className="destination-card fade-in"
     >
       <div className="destination-info">
         <h3>{title}</h3>
