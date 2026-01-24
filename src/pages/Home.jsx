@@ -14,6 +14,8 @@ export default function Home() {
 
   const recentDestinations = sortedDestinations.slice(0, 3);
 
+  const [backendMessage, setBackendMessage] = useState("");
+
   const [visitors, setVisitors] = useState(null);
 
   useEffect(() => {
