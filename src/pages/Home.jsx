@@ -13,7 +13,7 @@ export default function Home() {
   );
 
   const recentDestinations = sortedDestinations.slice(0, 3);
-  const [visitors, setVisitors] = useState(null);
+  const [visitors, setVisitors] = useState("✦");
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("soft-atlas-visited");
@@ -25,13 +25,16 @@ export default function Home() {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        setVisitors(data.visitors);
+        if (typeof data.visitors === "number") {
+          setVisitors(data.visitors);
+        }
         sessionStorage.setItem("soft-atlas-visited", "true");
       })
-      .catch(err => {
-        console.error("Visitor fetch failed", err);
+      .catch(() => {
+        setVisitors("✦");
       });
   }, []);
+
 
   return (
     <section className="page">
@@ -56,15 +59,9 @@ export default function Home() {
         <Link to="/atlas">Explore the Atlas →</Link>
       </p>
 
-      {visitors !== null ? (
-        <p className="visitor-count">
-          Travelers who’ve passed through: {visitors}
-        </p>
-      ) : (
-        <p className="visitor-count muted">
-          Travelers who’ve passed through: ✦
-        </p>
-      )}
+      <p className="visitor-count">
+        Travelers who’ve passed through: {visitors}
+      </p>
     </section>
   );
 }
