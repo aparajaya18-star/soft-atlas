@@ -38,21 +38,23 @@ app.get("/api/data", (req, res) => {
 });
 
 app.get("/api/visitors", (req, res) => {
-  db.serialize(() => {
+  const peek = req.query.peek === "true";
+
+  if (!peek) {
     db.run(
       "UPDATE visitors SET count = count + 1 WHERE id = 1"
     );
+  }
 
-    db.get(
-      "SELECT count FROM visitors WHERE id = 1",
-      (err, row) => {
-        if (err) {
-          return res.status(500).json({ error: "DB error" });
-        }
-        res.json({ visitors: row.count });
+  db.get(
+    "SELECT count FROM visitors WHERE id = 1",
+    (err, row) => {
+      if (err) {
+        return res.status(500).json({ error: "DB error" });
       }
-    );
-  });
+      res.json({ visitors: row.count });
+    }
+  );
 });
 
 

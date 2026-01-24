@@ -21,9 +21,11 @@ export default function Home() {
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("soft-atlas-visited");
 
-    if (hasVisited) return;
+    const url = hasVisited
+      ? "https://soft-atlas.onrender.com/api/visitors?peek=true"
+      : "https://soft-atlas.onrender.com/api/visitors";
 
-    fetch("https://soft-atlas.onrender.com/api/visitors")
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         setVisitors(data.visitors);
