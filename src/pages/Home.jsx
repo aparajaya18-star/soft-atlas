@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-
 import { Link } from "react-router-dom";
+
 import Hero from "../components/Hero";
 import DestinationCard from "../components/DestinationCard";
 import destinations from "../data/destinations";
@@ -15,9 +15,19 @@ export default function Home() {
   const recentDestinations = sortedDestinations.slice(0, 3);
 
   const [backendMessage, setBackendMessage] = useState("");
-
   const [visitors, setVisitors] = useState(null);
 
+  // 🔹 Read-only backend check (NO increment)
+  useEffect(() => {
+    fetch("https://soft-atlas.onrender.com/api/data")
+      .then((res) => res.json())
+      .then((data) => {
+        setBackendMessage(data.message);
+      })
+      .catch(() => {});
+  }, []);
+
+  // 🔹 Visitor count (increment ONCE per session)
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("soft-atlas-visited");
 
@@ -26,8 +36,8 @@ export default function Home() {
       : "https://soft-atlas.onrender.com/api/visitors";
 
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setVisitors(data.visitors);
         sessionStorage.setItem("soft-atlas-visited", "true");
       })
@@ -70,13 +80,11 @@ export default function Home() {
         </p>
       )}
 
-      {visitors !== null && (
+      {visitors !== null ? (
         <p className="visitor-count">
           Travelers who’ve passed through: {visitors}
         </p>
-      )}
-
-      {visitors === null && (
+      ) : (
         <p className="visitor-count muted">
           Travelers who’ve passed through: ✦
         </p>
