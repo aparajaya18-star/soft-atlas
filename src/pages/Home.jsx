@@ -13,33 +13,15 @@ export default function Home() {
   );
 
   const recentDestinations = sortedDestinations.slice(0, 3);
-
-  const [backendMessage, setBackendMessage] = useState("");
   const [visitors, setVisitors] = useState(null);
 
-  // 🔹 Read-only backend check (NO increment)
   useEffect(() => {
-    fetch("https://soft-atlas.onrender.com/api/data")
-      .then((res) => res.json())
-      .then((data) => {
-        setBackendMessage(data.message);
-      })
-      .catch(() => {});
-  }, []);
-
-  // 🔹 Visitor count (increment ONCE per session)
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem("soft-atlas-visited");
-
-    const url = hasVisited
-      ? "https://soft-atlas.onrender.com/api/visitors?peek=true"
-      : "https://soft-atlas.onrender.com/api/visitors";
-
-    fetch(url)
+    fetch("https://soft-atlas.onrender.com/api/visitors", {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setVisitors(data.visitors);
-        sessionStorage.setItem("soft-atlas-visited", "true");
       })
       .catch(() => {});
   }, []);
@@ -66,19 +48,6 @@ export default function Home() {
         These are only glimpses.{" "}
         <Link to="/atlas">Explore the Atlas →</Link>
       </p>
-
-      {backendMessage && (
-        <p
-          style={{
-            marginTop: "40px",
-            fontSize: "0.85rem",
-            opacity: 0.6,
-            textAlign: "center",
-          }}
-        >
-          {backendMessage}
-        </p>
-      )}
 
       {visitors !== null ? (
         <p className="visitor-count">

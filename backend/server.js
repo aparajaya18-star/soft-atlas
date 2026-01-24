@@ -1,18 +1,23 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
+const crypto = require("crypto");
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-const sqlite3 = require("sqlite3").verbose();
-const path = require("path");
+app.use(cors({
+  origin: "https://soft-atlas.onrender.com",
+  credentials: true
+}));
+app.use(express.json());
+app.use(cookieParser());
 
 const db = new sqlite3.Database(
   path.join(__dirname, "visitors.db")
 );
-
-app.use(cors());
-app.use(express.json());
 
 db.serialize(() => {
   db.run(`
@@ -28,22 +33,19 @@ db.serialize(() => {
   `);
 });
 
-
-app.get("/api/data", (req, res) => {
-  res.json({
-    project: "Soft Atlas",
-    message: "Backend connected successfully",
-    author: "Aparajaya",
-  });
-});
-
 app.get("/api/visitors", (req, res) => {
-  const peek = req.query.peek === "true";
+  const hasCookie = req.cookies.softAtlasVisitor;
 
-  if (!peek) {
-    db.run(
-      "UPDATE visitors SET count = count + 1 WHERE id = 1"
-    );
+  if (!hasCookie) {
+    const visitorId = crypto.randomUUID();
+
+    res.cookie("softAtlasVisitor", visitorId, {
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+      httpOnly: true,
+      sameSite: "lax",
+    });
+
+    db.run("UPDATE visitors SET count = count + 1 WHERE id = 1");
   }
 
   db.get(
@@ -56,7 +58,6 @@ app.get("/api/visitors", (req, res) => {
     }
   );
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
