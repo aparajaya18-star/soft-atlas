@@ -16,14 +16,21 @@ export default function Home() {
   const [visitors, setVisitors] = useState(null);
 
   useEffect(() => {
-    fetch("https://soft-atlas.onrender.com/api/visitors", {
-      credentials: "include",
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    const hasVisited = sessionStorage.getItem("soft-atlas-visited");
+
+    const url = hasVisited
+      ? "https://soft-atlas.onrender.com/api/visitors?peek=true"
+      : "https://soft-atlas.onrender.com/api/visitors";
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
         setVisitors(data.visitors);
+        sessionStorage.setItem("soft-atlas-visited", "true");
       })
-      .catch(() => {});
+      .catch(err => {
+        console.error("Visitor fetch failed", err);
+      });
   }, []);
 
   return (
