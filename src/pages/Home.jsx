@@ -14,27 +14,20 @@ export default function Home() {
 
   const recentDestinations = sortedDestinations.slice(0, 3);
 
-  const [backendMessage, setBackendMessage] = useState("");
-
-  useEffect(() => {
-    fetch("https://soft-atlas.onrender.com/api/visitors")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Backend response:", data);
-        setBackendMessage(data.message);
-      })
-      .catch((err) => {
-        console.error("Backend fetch failed:", err);
-      });
-  }, []);
-
   const [visitors, setVisitors] = useState(null);
 
   useEffect(() => {
+    const hasVisited = sessionStorage.getItem("soft-atlas-visited");
+
+    if (hasVisited) return;
+
     fetch("https://soft-atlas.onrender.com/api/visitors")
       .then(res => res.json())
-      .then(data => setVisitors(data.visitors))
-      .catch(err => console.error(err));
+      .then(data => {
+        setVisitors(data.visitors);
+        sessionStorage.setItem("soft-atlas-visited", "true");
+      })
+      .catch(() => {});
   }, []);
 
   return (
