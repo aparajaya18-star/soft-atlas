@@ -34,30 +34,39 @@ db.serialize(() => {
 });
 
 app.get("/api/visitors", (req, res) => {
-  const hasCookie = req.cookies.softAtlasVisitor;
+  const peek = req.query.peek === "true";
 
-  if (!hasCookie) {
-    const visitorId = crypto.randomUUID();
-
-    res.cookie("softAtlasVisitor", visitorId, {
-      maxAge: 1000 * 60 * 60 * 24 * 365,
-      httpOnly: true,
-      sameSite: "lax",
-    });
-
-    db.run("UPDATE visitors SET count = count + 1 WHERE id = 1");
-  }
-
-  db.get(
-    "SELECT count FROM visitors WHERE id = 1",
-    (err, row) => {
-      if (err) {
-        return res.status(500).json({ error: "DB error" });
+  if (peek) {
+    // READ ONLY
+    db.get(
+      "SELECT count FROM visitors WHERE id = 1",
+      (err, row) => {
+        if (err) {
+          return res.status(500).json({ error: "DB error" });
+        }
+        res.json({ visitors: row.count });
       }
-      res.json({ visitors: row.count });
-    }
-  );
+    );
+  } else {
+    // INCREMENT
+    db.serialize(() => {
+      db.run(
+        "UPDATE visitors SET count = count + 1 WHERE id = 1"
+      );
+
+      db.get(
+        "SELECT count FROM visitors WHERE id = 1",
+        (err, row) => {
+          if (err) {
+            return res.status(500).json({ error: "DB error" });
+          }
+          res.json({ visitors: row.count });
+        }
+      );
+    });
+  }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
