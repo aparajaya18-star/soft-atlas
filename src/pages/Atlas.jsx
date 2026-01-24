@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DestinationCard from "../components/DestinationCard";
 import destinations from "../data/destinations";
 import { getVisitTimestamp } from "../utils/date";
@@ -60,6 +60,16 @@ export default function Atlas() {
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <section className="atlas-page">
@@ -145,6 +155,17 @@ export default function Atlas() {
           />
         ))}
       </div>
+      )}
+      {showScrollTop && (
+        <button
+          className="scroll-top"
+          onClick={() =>
+            window.scrollTo({ top: 0, behavior: "smooth" })
+          }
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
       )}
     </section>
   );
