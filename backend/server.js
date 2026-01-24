@@ -1,19 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
-const crypto = require("crypto");
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-app.use(cors({
-  origin: "https://soft-atlas.onrender.com",
-  credentials: true
-}));
+app.use(cors());  // ✅ important fix
 app.use(express.json());
-app.use(cookieParser());
 
 const db = new sqlite3.Database(
   path.join(__dirname, "visitors.db")
@@ -37,36 +31,19 @@ app.get("/api/visitors", (req, res) => {
   const peek = req.query.peek === "true";
 
   if (peek) {
-    // READ ONLY
-    db.get(
-      "SELECT count FROM visitors WHERE id = 1",
-      (err, row) => {
-        if (err) {
-          return res.status(500).json({ error: "DB error" });
-        }
-        res.json({ visitors: row.count });
-      }
-    );
+    db.get("SELECT count FROM visitors WHERE id = 1", (err, row) => {
+      if (err) return res.status(500).json({ error: "DB error" });
+      res.json({ visitors: row.count });
+    });
   } else {
-    // INCREMENT
-    db.serialize(() => {
-      db.run(
-        "UPDATE visitors SET count = count + 1 WHERE id = 1"
-      );
-
-      db.get(
-        "SELECT count FROM visitors WHERE id = 1",
-        (err, row) => {
-          if (err) {
-            return res.status(500).json({ error: "DB error" });
-          }
-          res.json({ visitors: row.count });
-        }
-      );
+    db.run("UPDATE visitors SET count = count + 1 WHERE id = 1", () => {
+      db.get("SELECT count FROM visitors WHERE id = 1", (err, row) => {
+        if (err) return res.status(500).json({ error: "DB error" });
+        res.json({ visitors: row.count });
+      });
     });
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
