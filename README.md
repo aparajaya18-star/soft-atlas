@@ -2,55 +2,77 @@
 
 A quiet collection of places, moments, and memories.
 
-Soft Atlas is a personal travel journal built with React, focusing on slower travel experiences, visual storytelling, and calm, minimal design.
+Soft Atlas is a personal travel journal built with React, designed around slower travel, visual storytelling, and calm, minimal interactions. It explores how technology can document experiences gently, without noise or urgency.
+
+---
 
 ## Project Overview
 
-This project was developed as part of a multi-stage web development assignment, gradually evolving from a static website into a fully component-based React application with basic backend integration.
+Soft Atlas began as a static travel blog and gradually evolved into a full-stack web project. Over multiple development stages, it transitioned from a simple HTML/CSS site into a component-driven React application with backend integration, dynamic filtering, and persistent data handling.
 
-## Task 2 – Website Building (HTML, CSS, JavaScript)
+The project emphasizes clarity, emotional design, and thoughtful interaction over feature-heavy complexity.
 
-For Task 2, I designed and built a multi-page travel blog website with Home, About, and Contact pages. The focus was on layout structure, visual hierarchy, and responsiveness. The project was hosted using GitHub Pages and followed a clean, content-first design approach.
+---
 
-Theme: Travel Blog
-Pages: Home, About, Contact
+## Development Journey
 
-## Task 3 – React Conversion & Component Structure
+### Task 2 – Website Building (HTML, CSS, JavaScript)
 
-In Task 3, the entire project was converted into React. The website was broken down into reusable components, and React Router was used to manage navigation between pages. Destination data was centralized and dynamically rendered across the Home and Atlas pages, with destinations sorted by visit date and the three most recent entries displayed on the Home page.
+The project started as a multi-page travel blog with Home, About, and Contact pages. The focus was on layout structure, responsive design, and visual hierarchy, using a clean, content-first approach. The site was hosted using GitHub Pages.
 
-## Task 4 – Beginner Node.js Integration
+**Theme:** Travel Blog  
+**Pages:** Home, About, Contact  
 
-For Task 4, a simple Node.js + Express backend was created to demonstrate frontend–backend communication. A GET API endpoint returns sample JSON data, which is fetched in the React frontend and displayed on the Home page, confirming successful integration.
+---
 
-Note: Backend runs locally for demonstration purposes. GitHub Pages hosts the frontend only.
+### Task 3 – React Conversion & Component Structure
+
+The website was fully converted into React and broken into reusable components. React Router was introduced for navigation, and destination data was centralized and dynamically rendered across pages. Destinations are sorted by visit date, with recent entries highlighted on the Home page and the full archive presented in the Atlas.
+
+---
+
+### Task 4 – Backend Integration (Node.js & Express)
+
+A Node.js + Express backend was added to demonstrate frontend–backend communication. API endpoints were created and consumed from the React frontend, confirming successful data flow and integration.
+
+---
+
+### Continued Enhancements
+
+Beyond the original assignment scope, the project was expanded with:
+
+- Mood-based destination filters
+- A “WanderLust” feature for random discovery
+- Persistent visitor count using a deployed backend
+- UI polish including subtle animations and highlights
+- Separate frontend and backend deployments
+
+---
 
 ## Features
 
-Responsive layout
+- Responsive, minimal layout
+- Image-based destination cards
+- Dynamic rendering from centralized data
+- Date-based destination sorting
+- Mood-based filtering
+- Random destination discovery (WanderLust)
+- Persistent visitor counter
+- Subtle transitions and interaction feedback
 
-Image-based destination cards
-
-Dynamic rendering from data
-
-Date-based sorting of destinations
-
-Clean typography and subtle transitions
-
-Basic Node.js backend integration
+---
 
 ## Tech Stack
 
-React
+- React
+- React Router
+- Node.js
+- Express
+- SQLite
+- CSS
 
-React Router
-
-Node.js
-
-Express
-
-CSS
+---
 
 ## Status
 
-This project is actively evolving. Future improvements will focus on visual polish, interactions, and expanding backend functionality.
+Soft Atlas is an evolving project. Future improvements may include richer interactions, accessibility enhancements, and deeper backend features.
